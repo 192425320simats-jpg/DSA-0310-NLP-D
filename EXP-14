@@ -1,0 +1,13 @@
+from nltk import CFG, ChartParser
+
+grammar = CFG.fromstring("""
+S -> NP_SG VP_SG | NP_PL VP_PL
+NP_SG -> 'he' | 'she'
+NP_PL -> 'they'
+VP_SG -> 'runs'
+VP_PL -> 'run'
+""")
+
+parser = ChartParser(grammar)
+sentence = "he runs".split()
+print(any(parser.parse(sentence)))
