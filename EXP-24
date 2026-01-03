@@ -1,0 +1,8 @@
+dialog = input("Enter a sentence: ").lower()
+
+if dialog.endswith("?"):
+    print("Dialog Act: Question")
+elif "please" in dialog:
+    print("Dialog Act: Request")
+else:
+    print("Dialog Act: Statement")
