@@ -1,0 +1,8 @@
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+text = input("Enter text: ").split(".")
+vectors = CountVectorizer().fit_transform(text)
+score = cosine_similarity(vectors)[0][1]
+
+print("Coherence Score:", score)
