@@ -1,0 +1,8 @@
+text = input("Enter text: ").split()
+entity = ""
+
+for word in text:
+    if word.istitle():
+        entity = word
+    if word.lower() in ["he", "she", "they"]:
+        print(f"{word} refers to {entity}")
