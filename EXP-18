@@ -1,0 +1,11 @@
+import re
+
+def parse_fopc(expr):
+    pattern = r'(\w+)\(([^)]+)\)'
+    match = re.match(pattern, expr)
+    if match:
+        predicate = match.group(1)
+        arguments = match.group(2).split(',')
+        return predicate, arguments
+
+print(parse_fopc("Loves(John,Mary)"))
