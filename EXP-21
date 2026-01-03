@@ -1,0 +1,9 @@
+import nltk
+from nltk import pos_tag, word_tokenize
+
+sentence = input("Enter a sentence: ")
+words = word_tokenize(sentence)
+tags = pos_tag(words)
+
+noun_phrases = [word for word, tag in tags if tag.startswith("NN")]
+print("Noun Phrases:", noun_phrases)
