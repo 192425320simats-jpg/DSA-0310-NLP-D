@@ -1,0 +1,10 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+docs = ["I love NLP", "NLP is fun", "I love machine learning"]
+vectorizer = TfidfVectorizer()
+tfidf = vectorizer.fit_transform(docs)
+
+query = vectorizer.transform(["love NLP"])
+scores = cosine_similarity(query, tfidf)
+print(scores)
