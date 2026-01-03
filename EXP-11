@@ -1,0 +1,19 @@
+import nltk
+from nltk import CFG
+
+grammar = CFG.fromstring("""
+    S -> NP VP
+    NP -> Det N
+    VP -> V NP
+    Det -> 'the' | 'a'
+    N -> 'dog' | 'cat'
+    V -> 'chases' | 'sees'
+""")
+
+parser = nltk.ChartParser(grammar)
+
+sentence = "the dog chases a cat".split()
+
+for tree in parser.parse(sentence):
+    print(tree)
+    tree.draw()
